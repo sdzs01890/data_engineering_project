@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+
+ python-etl:
+  image: python-etl 
+  command: python-etl -db TMDB_API -hs localhost -u root -pass root -p 5432
+  networks:
+    - TMDB_network
+
+ pgdatabase:
+  image: postgres
+  environment:
+   - POSTGRES_USER=root
+   - POSTGRES_PASSWORD=root
+   - POSTGRES_DB=TMDB_API
+  ports:
+   - "5432:5432"
+  volumes:
+   - etl_TMDB:/var/lib/postgresql/data
+  networks:
+   - TMDB_network
+
+ pgadmin:
+  image: dpage/pgadmin4
+  environment:
+   - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+   - PGADMIN_DEFAULT_PASSWORD=root
+  ports:
+   - "8080:80"
+  volumes:
+   - etl_TMDB:/var/lib/postgresql/data
+  depends_on:
+   - pgdatabase
+  networks:
+   - TMDB_network
+
+networks:
+  TMDB_network:
+    external: true #for let anything outside compose can connect with this networks
+
+volumes:
+  etl_TMDB:
