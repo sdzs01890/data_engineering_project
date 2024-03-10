@@ -1,5 +1,5 @@
 ## Overview
-This is an engineer case study to perform an ETL process so that the data can be used by data analysts or data scientists. The project include these techs:
+This is an engineer case study to perform an ETL process so that data analysts or data scientists can use the data. The project includes these techs:
 
 1. Python programming language
 2. Docker
@@ -24,8 +24,6 @@ Finally, the data is loaded as table to PostgreSQL database in Docker container
 3. Go to localhost:8080 to access pgadmin
 + id: admin@admin.com
 + password: root
-![image](https://github.com/sdzs01890/data_engineering_project/assets/78092716/eaea7d3d-df21-4a6d-bd1d-2baf45b58247)
-
 4. Once you are connected, click “Add new server" and configure the PostgreSQL database. You can find the IP address to connect using "docker inspect [Your Postgres Container ID]"
 ![image](https://github.com/sdzs01890/data_engineering_project/assets/78092716/8b4d7076-4869-4c94-87ce-6ad998edf61f)
 
