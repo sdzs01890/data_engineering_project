@@ -2,12 +2,6 @@ version: "3.8"
 
 services:
 
- python-etl:
-  image: python-etl 
-  command: python-etl -db TMDB_API -hs localhost -u root -pass root -p 5432
-  networks:
-    - TMDB_network
-
  pgdatabase:
   image: postgres
   environment:
@@ -34,6 +28,12 @@ services:
    - pgdatabase
   networks:
    - TMDB_network
+
+ python-etl:
+  image: sdzs01890/etl_case_study:my_etl
+  command: python-etl -db TMDB_API -hs localhost -u root -pass root -p 5432
+  networks:
+    - TMDB_network
 
 networks:
   TMDB_network:

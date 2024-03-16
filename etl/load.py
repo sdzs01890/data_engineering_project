@@ -9,7 +9,7 @@ def load_data(df):
     # postgres configuration
     DB_USERNAME = 'root'
     DB_PASSWORD = 'root'
-    DB_HOST = '172.18.0.2'
+    DB_HOST = '172.18.0.3'
     DB_PORT = '5432'
     DB_NAME = 'TMDB_API'
 
